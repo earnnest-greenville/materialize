@@ -139,7 +139,7 @@
         if (
           Array.prototype.any &&
           e.originalEvent.path.any(function(elem) {
-            $(elem).hasClass('no-collapse');
+            return $(elem).hasClass('no-collapse');
           })
         ) {
           e.preventDefault();
