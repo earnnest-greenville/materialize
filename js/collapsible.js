@@ -137,7 +137,8 @@
           element = $(e.target);
 
         if (
-          e.originalEvent.path.includes(function(elem) {
+          Array.prototype.any &&
+          e.originalEvent.path.any(function(elem) {
             $(elem).hasClass('no-collapse');
           })
         ) {
