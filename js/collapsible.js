@@ -142,8 +142,6 @@
             return $(elem).hasClass('no-collapse');
           })
         ) {
-          e.preventDefault();
-          e.stopPropagation();
           return;
         }
 
