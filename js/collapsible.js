@@ -138,6 +138,7 @@
 
         if (
           Array.prototype.any &&
+          e.originalEvent.path &&
           e.originalEvent.path.any(function(elem) {
             return $(elem).hasClass('no-collapse');
           })
