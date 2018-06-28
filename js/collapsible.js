@@ -129,6 +129,20 @@
         return object.closest('li > .collapsible-header');
       }
 
+      function hasNoCollapse(currentTarget, topLevelElement) {
+        if ($(currentTarget).hasClass('no-collapse')) {
+          return true;
+        }
+        if (!currentTarget.parentElement) {
+          return false;
+        }
+        if (currentTarget == topLevelElement) {
+          return false;
+        }
+
+        return hasNoCollapse(currentTarget.parentElement, topLevelElement);
+      }
+
       /*****  End Helper Functions  *****/
 
       // Add click handler to only direct collapsible header children
@@ -143,6 +157,10 @@
             return $(elem).hasClass('no-collapse');
           })
         ) {
+          return;
+        }
+
+        if (hasNoCollapse(e.target, e.currentTarget)) {
           return;
         }
 
